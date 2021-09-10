@@ -50,6 +50,14 @@ urlpatterns = [
 ## Additional Settings
 Add these configurations to settings.py
 ```
+# add these app to installed apps
+    'dashboard',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/login"
