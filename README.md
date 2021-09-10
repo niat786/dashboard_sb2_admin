@@ -4,6 +4,21 @@ A auth ready dashboard to reuse in projects.
 ## Installation
 Simply copy paste the app or clone whole project. This repo contains fresh copy of Django 3.2.
 
+```
+virtualenv venv
+
+# linux/macos
+source venv/bin.activate
+
+#windows
+venv\Scripts\activate
+```
+now install requirements
+```
+pip install -r requirements.txt
+```
+
+OR you can manually set it up.
 ## Install django-allauth
 This app requires django-allauth package.
 [Get source](https://django-allauth.readthedocs.io/en/latest/installation.html).
