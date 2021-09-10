@@ -8,7 +8,7 @@ Simply copy paste the app or clone whole project. This repo contains fresh copy 
 virtualenv venv
 
 # linux/macos
-source venv/bin.activate
+source venv/bin/activate
 
 #windows
 venv\Scripts\activate
