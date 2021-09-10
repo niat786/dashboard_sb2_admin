@@ -18,7 +18,7 @@ now install requirements
 pip install -r requirements.txt
 ```
 
-OR you can manually set it up.
+OR setup manually.
 ## Install django-allauth
 This app requires django-allauth package.
 [Get source](https://django-allauth.readthedocs.io/en/latest/installation.html).
