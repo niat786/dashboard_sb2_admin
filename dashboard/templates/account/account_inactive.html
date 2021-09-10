@@ -1,0 +1,23 @@
+{% extends 'dashboard/layouts/auth.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container" style="min-height:500px;">
+    <h1>{% trans "Account Inactive" %}</h1>
+
+    <p class="text-danger">{% trans "This account is inactive." %}</p>
+    <p class="text-info">Go to <a href="/">Homepage</a></p>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}    
+<!-- session messages -->
+{% if messages %}
+{% include 'dashboard/partials/session-alerts.html' %}
+{% endif %}
+<!-- end session message -->
+{% endblock scripts %}

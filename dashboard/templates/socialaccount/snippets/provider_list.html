@@ -1,0 +1,13 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+
+
+<a href="{% provider_login_url provider.id openid=brand.openid_url process=process %}" >
+<button class="btn mr-2 btn-icon-only btn-pill btn-{{provider.name|lower}}" type="button">
+<span class="btn-inner-icon"><i class="fab fa-{{provider.name|lower}}"></i></span></button></a>
+
+
+{% endfor %}

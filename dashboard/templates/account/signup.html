@@ -1,0 +1,93 @@
+{% extends 'dashboard/layouts/auth.html' %}
+{% load i18n %}
+
+{% block content %}
+
+
+  <div class="row justify-content-center">
+    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+<!-- new form -->
+    <div class=" col-lg-7 col-md-6 col-sm-12">
+      <div class="py-5">
+          <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+          </div>
+          <form action="{% url 'account_signup' %}" method="POST" class="user px-2">
+
+            <ul class="text-danger" style="list-style:none !important;">
+              {% for key, value in form.errors.items %}
+              {{value}}
+              {% endfor %}
+            </ul>
+  
+            {% csrf_token %}
+  
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            
+              <div class="form-group">
+                  <input autocomplete="on" type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+              </div>
+              <div class="form-group">
+                
+                      <input autocomplete="on" type="password" name="password1" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                
+              </div>
+              <div class="form-group">
+                
+                      <input autocomplete="on" type="password" name="password2" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                
+              </div>
+              <button type="submit" class="btn btn-primary btn-user btn-block">
+                  Register Account
+              </button>
+              <!-- <hr>
+              <a href="#" class="btn btn-google btn-user btn-block">
+                  <i class="fab fa-google fa-fw"></i> Register with Google
+              </a>
+              <a href="#" class="btn btn-facebook btn-user btn-block">
+                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+              </a> -->
+          </form>
+          <hr>
+          <div class="text-center">
+              <a class="small" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+          </div>
+          <div class="text-center">
+              <a class="small" href="{% url 'account_login' %}">Already have an account? Login!</a>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- session messages -->
+{% if messages %}
+  {% include 'dashboard/partials/session-alerts.html' %}
+{% endif %}
+<!-- end session message -->
+<script>
+  $(document).ready(function() {
+    $("#input-email").focus();
+  });
+
+  //toggle password type to text
+  function passwordTypeToggle(){
+    var input = document.getElementById("id_password");
+    var input2 = document.getElementById("input-password-confirm");
+    if (input.type === "password") {
+      input.type = "text";
+      input2.type = "text";
+    }else{
+        input.type = "password";
+        input2.type = "password";
+    }};
+    var toggle = document.getElementById("toggle_password");
+    toggle.addEventListener("click", passwordTypeToggle);
+</script>
+{% endblock scripts%}
