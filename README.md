@@ -50,7 +50,7 @@ urlpatterns = [
 ## Additional Settings
 Add these configurations to settings.py
 ```
-# add these app to installed apps
+# add these apps to installed apps
     'dashboard',
     'django.contrib.sites',
     'allauth',
